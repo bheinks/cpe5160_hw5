@@ -1,18 +1,16 @@
 #include "main.h"
+#include "PORT.h"
 #include "sEOS.h"
 
-void go_to_sleep() {
-}
-
 void system_init(void) {
+    GREENLED = 0;
 }
 
 void main(void) {
     system_init();
-    seos_init(100);
+    seos_init(1);
     
     while(1) {
-        PCON |= 0x01;
         go_to_sleep();
     }
 }

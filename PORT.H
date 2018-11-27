@@ -44,9 +44,9 @@ sbit SW2 = P2^1;
 sbit SW3 = P2^2;
 sbit SW4 = P2^3;
 sbit REDLED = P2^4;
-sbit GREENLED = P2^5;
-sbit YELLOWLED = P2^6;
-sbit AMBERLED = P2^7;
+sbit YELLOWLED = P2^5;
+sbit AMBERLED = P2^6;
+sbit GREENLED = P2^7;
 
 #define Red_LED 1<<4
 #define Yellow_LED 1<<5
@@ -58,7 +58,7 @@ sbit per_TxD = P3^0;
 sbit per_RxD = P3^1;
 sbit P3_2 = P3^2;
 sbit P3_3 = P3^3;
-sbit P3_4 = P3^4;
+sbit BLUELED = P3^4;
 sbit P3_5 = P3^5;
 sbit RS = P3^6;
 sbit E = P3^7;

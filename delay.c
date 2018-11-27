@@ -2,24 +2,23 @@
 #include "PORT.h"
 #include "delay.h"
 
-void DELAY_1ms_T0(uint16_t duration) {
-   // Configure Timer 0 as a 16-bit timer 
-   TMOD &= 0xF0; // Clear all T0 bits (T1 left unchanged)
-   TMOD |= 0x01; // Set required T0 bits (T1 left unchanged) 
-      
-   ET0 = 0;  // No interupts
-      
-   do {
-     // Values for 1 ms delay
-      TH0 = TIMER_RELOAD_TH;  // Timer 0 initial value (High Byte)
-      TL0 = TIMER_RELOAD_TL;  // Timer 0 initial value (Low Byte)
+void delay(uint16_t duration) {
+    TMOD &= 0xF0; // clear all T0 bits (T1 left unchanged)
+    TMOD |= 0x01; // set required T0 bits (T1 left unchanged)
 
-      TF0 = 0;          // Clear overflow flag
-      TR0 = 1;          // Start timer 0
+    ET0 = 0; // no interrupts
 
-      while (TF0 == 0); // Loop until Timer 0 overflows (TF0 == 1)
+    do {
+        // values for 1ms delay
+        TH0 = TIMER_RELOAD_H;
+        TL0 = TIMER_RELOAD_L;
 
-      TR0 = 0;          // Stop Timer 0
-      duration--;
-    } while(duration > 0);
+        TF0 = 0; // clear overflow flag
+        TR0 = 1; // start timer 0
+
+        while (TF0 == 0);
+
+        TR0 = 0; // stop timer 0
+        duration--;
+    } while (duration > 0);
 }
