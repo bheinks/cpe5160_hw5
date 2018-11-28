@@ -18,12 +18,13 @@ void traffic_light_isr(void) interrupt TIMER_2_OVERFLOW {
         case MAIN_GREEN:
             set_lights(1, 0, 0, 0, 0);
         
-            if (SW1) {
+            if (!SW1) {
                 SYSTEM_STATE = MAIN_YELLOW_SIDE;
             }
-            else if (SW2) {
+            else if (!SW2) {
                 SYSTEM_STATE = MAIN_YELLOW_CROSS;
                 TIMER = 0;
+                
             }
         
             break;
@@ -93,7 +94,7 @@ void traffic_light_isr(void) interrupt TIMER_2_OVERFLOW {
                 SYSTEM_STATE = SIDE_YELLOW;
                 TIMER = 0;
             }
-            else if (!SW1){
+            else if (SW1){
                 SYSTEM_STATE = SIDE_BUTTON_RELEASE;
                 TIMER = 0;
             }
