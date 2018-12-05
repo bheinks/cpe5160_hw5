@@ -1,6 +1,5 @@
 #include "traffic_light.h"
 #include "PORT.h"
-#include "delay.h"
 
 // Function to set lights based on input numbers
 void set_lights(bit green, bit amber, bit yellow, bit red, bit blue) {

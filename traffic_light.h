@@ -3,6 +3,7 @@
 
 #include "main.h"
 
+// possible system states
 typedef enum {
     MAIN_GREEN,
     MAIN_YELLOW_CROSS,
@@ -18,6 +19,7 @@ typedef enum {
     NO_WALK_OFF
 } states_t;
 
+// struct instance representing the system state
 states_t SYSTEM_STATE = MAIN_GREEN;
 uint32_t TIMER = 0, FLASH_TIMER = 0;
 
